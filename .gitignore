@@ -1,0 +1,6 @@
+extension/bower_components
+extension/js/
+node_modules/
+.idea/
+dist/
+npm-debug.log
