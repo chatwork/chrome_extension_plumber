@@ -1,15 +1,18 @@
 import BaseModel = require('../model');
 import MatcheModel = require('./matche/model');
+import ContentModel = require('./content/model');
 
 class Model extends BaseModel {
-    constructor(public name: string,
+    constructor(
+                id: string,
+                public name: string,
+                public manifest_url: URL,
                 public enable: boolean,
-                public urls: URL[],
+                public urls: URLPattern[],
                 private types: RuleType[],
                 public matchs: MatcheModel[],
-                public content_script: string,
-                public content_stylesheet: string) {
-        super();
+                public content: ContentModel) {
+        super(id);
     }
     getTypes() {
         return this.types.map((type) => RuleType[type]);

@@ -1,14 +1,14 @@
 {
   "name": "plumber",
-  "version": "0.0.0",
+  "version": "0.0.11",
   "authors": [
     "@kyo_ago"
   ],
   "dependencies": {
     "fetch": "~0.6.1",
+    "lodash": "~3.0.0",
     "react": "~0.12.2",
     "react-router": "~0.11.6",
-    "react-style": "git@github.com:js-next/react-style.git",
     "uuid": "git@github.com:cw-ago/UUID.git"
   },
   "ignore": [

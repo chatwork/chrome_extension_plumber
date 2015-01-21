@@ -11,16 +11,19 @@ class Infrastructure {
         var obj = JSON.parse(json);
         return this.toModel(obj);
     }
-    toModel(models: Object[]) {
+    toModel(models: Object) {
         return new RulesModel(
-            Utils.toArray(models)
+            models['id'],
+            Utils.toArray(models['rules'])
                 .map(model => this.ruleInfrastructure.toModel(model))
         );
     }
     toObject(models: RulesModel) {
-        return models.gets()
-            .map((model) => this.ruleInfrastructure.toObject(model))
-        ;
+        return {
+            'id': models.id,
+            'rules': models.gets()
+                .map((model) => this.ruleInfrastructure.toObject(model))
+        };
     }
 }
 export = Infrastructure

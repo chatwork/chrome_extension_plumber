@@ -2,10 +2,11 @@ import BaseModel = require('../../model');
 
 class Model extends BaseModel {
     constructor(
-        private url: RegExp,
+        id: string,
+        public url: RegExp,
         public redirect: URL
     ) {
-        super();
+        super(id);
     }
     isMatch(url) {
         return this.url.test(url);

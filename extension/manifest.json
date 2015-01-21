@@ -1,6 +1,6 @@
 {
-  "name": "plumber",
-  "version": "0.0.0",
+  "name": "Plumber",
+  "version": "0.0.11",
   "manifest_version": 2,
   "background": {
     "scripts": [
@@ -8,8 +8,14 @@
       "/js/background.js"
     ]
   },
+  "icons": {
+    "48": "img/icon_active.png",
+    "128": "img/icon_active_128.png"
+  },
   "browser_action": {
-    "default_popup": "/html/browser_action.html"
+    "default_popup": "/html/browser_action.html",
+    "default_title": "Plumber",
+    "default_icon": "img/icon_active.png"
   },
   "permissions": [
     "webRequest",

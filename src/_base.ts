@@ -1,3 +1,7 @@
+class URLPattern {
+    constructor(public pattern: string) {}
+}
+
 interface URL {
     new (url: string): URL;
     hash: string;
@@ -13,6 +17,10 @@ interface URL {
     href: string;
 }
 
+interface fetch {
+    (url: URL): any;
+}
+
 enum RuleType {
     main_frame,
     sub_frame,
@@ -23,6 +31,8 @@ enum RuleType {
     xmlhttprequest,
     other
 }
+
+for (var i in console) ('function' === typeof console[i]) && (console[i] = console[i].bind(console));
 
 (<any>window).chrome = (<any>window).chrome || {};
 (<any>window).chrome.extension = (<any>window).chrome.extension || {};

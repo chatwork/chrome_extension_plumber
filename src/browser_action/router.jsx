@@ -1,31 +1,36 @@
-var Route = ReactRouter.Route;
-var DefaultRoute = ReactRouter.DefaultRoute;
+var { Route, DefaultRoute } = ReactRouter;
 
 class Router {
-    constructor() {
-    }
-    _getMain(rulesModel) {
+    _getMain(rulesModel, onUpdate, onDelete, onChangeEnable) {
         return React.createClass({
             render() {
-                return require('./components/main/index')({rules: rulesModel});
+                return require('./components/main/index')({
+                    rules: rulesModel,
+                    onUpdate: onUpdate,
+                    onDelete: onDelete,
+                    onChangeEnable: onChangeEnable
+                });
             }
         });
     }
     _getDialog(onNewRule) {
         return React.createClass({
             render() {
-                return require('./components/dialog/index')({onNewRule: onNewRule});
+                return require('./components/dialog/index')({
+                    onNewRule: onNewRule
+                });
             }
         });
     }
-    run(rulesModel, onNewRule) {
+    run(rulesModel, onNewRule, onUpdate, onDelete, onChangeEnable) {
         var app = require('./components/app');
-        var main = this._getMain(rulesModel);
+        var main = this._getMain(rulesModel, onUpdate, onDelete, onChangeEnable);
         var dialog = this._getDialog(onNewRule);
 
         return ReactRouter.run((
             <Route handler={app}>
                 <Route name="dialog" path="/dialog" handler={dialog} />
+                <Route name="top" path="/" handler={main} />
                 <DefaultRoute handler={main} />
             </Route>
         ), function (Handler) {

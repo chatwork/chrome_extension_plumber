@@ -9,13 +9,15 @@ class Infrastructure {
     }
     toJSON(msg: RefreshModel) {
         return {
+            'id': msg.id,
             'type': RefreshModel.Type,
             'rules': this.rulesInfrastructure.toObject(msg.rules)
         };
     }
     toModel(obj: Object) {
         return new RefreshModel(
-            this.rulesInfrastructure.toModel(Utils.toArray(obj['rules']))
+            obj['id'],
+            this.rulesInfrastructure.toModel(obj['rules'])
         );
     }
 }

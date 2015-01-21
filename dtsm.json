@@ -5,7 +5,18 @@
       "ref": "master"
     }
   ],
+  "version": "0.0.11",
   "path": "typings",
   "bundle": "typings/bundle.d.ts",
-  "dependencies": {}
+  "dependencies": {
+    "chrome/chrome.d.ts": {
+      "ref": "4f0eec65afc75001ef6ce2af5734f5dfc1b5568d"
+    },
+    "es6-promise/es6-promise.d.ts": {
+      "ref": "4f0eec65afc75001ef6ce2af5734f5dfc1b5568d"
+    },
+    "lodash/lodash.d.ts": {
+      "ref": "b3324f69165309a3ea2bd02fd10e97841bf07c83"
+    }
+  }
 }

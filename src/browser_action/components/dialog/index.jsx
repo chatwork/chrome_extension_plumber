@@ -1,76 +1,64 @@
 require('fetch');
 
+var InputUrl = require('./inputUrl');
 var Status = require('./status');
+var Title = require('../head/title');
+var AddButton = require('../button/add');
+var CancelButton = require('../button/cancel');
 
 module.exports = React.createClass({
+    mixins: [ReactRouter.Navigation],
     propTypes: {
         'onNewRule': React.PropTypes.func.isRequired
     },
     getInitialState() {
         return {
             status: '',
-            result: ''
+            manifest_url: undefined,
+            result: undefined
         };
     },
     onCancel() {
-        location.hash = '';
+        this.transitionTo('top');
     },
     onOK() {
-        this.props.onNewRule(this.state.result);
+        this.props.onNewRule(this.state.manifest_url, this.state.result);
     },
-    onBlur(e) {
-        var url = (e.target.value || '').trim();
-        if (!url) {
-            return;
-        }
+    _fetchJSON(url) {
+        fetch(url).then(r => r.json())
+            .then((json) => {
+                this.setState({ status: 'OK', manifest_url: url, result : json });
+            }).catch((ex) => {
+                this.setState({ status: 'NG', result : ex.message });
+            })
+        ;
+    },
+    onGetURL(url) {
         this.setState({ status: 'Loading' });
-        setTimeout(() => {
-            if (!this.isMounted()) {
-                return;
-            }
-            this.setState({ status: 'OK', result : {
-                'name' : 'setting name',
-                'enable': true,
-                'urls' : ['http://0-9.tumblr.com/'],
-                'types' : ['script'],
-                'matchs' : [
-                    {
-                        'url' : 'http://0-9.tumblr.com/tweets.js',
-                        'redirect' : 'http://jsrun.it/otoyasumi/A0b1/js'
-                    }
-                ],
-                'content_script' : '',
-                'content_stylesheet' : ''
-            } });
-        }, 500);
-        //fetch(url)
-        //    .then((response) => {
-        //        return response.json();
-        //    }).then((json) => {
-        //        this.setState({ status: 'OK', result : json });
-        //    }).catch((ex) => {
-        //        this.setState({ status: 'NG', result : ex.message });
-        //    });
+        this._fetchJSON(url);
     },
     render() {
-        var disabled = this.state.status !== 'OK';
-        var result = this.state.result ? JSON.stringify(this.state.result) : '';
+        var result = this.state.result ? JSON.stringify(this.state.result, null, '\t') : '';
+        var style = (ReactStyle`
+            height: 14em;
+            background-color: #f4f3f2;
+            overflow-y: auto;
+            overflow-x: hidden;
+        `).style;
         return (
-            <div className="dialog">
-                <div className="header">
-                    <span className="title">plumber settings</span>
-                </div>
-                <div className="modal-header">
-                    <h3 className="modal-title">設定用URLを入力してください</h3>
-                </div>
-                <div className="modal-body">
-                    <input type="url" placeholder="http://example.com" autofocus onBlur={this.onBlur} />
-                    <Status status={this.state.status} />
-                    <pre className="result">{result}</pre>
-                </div>
-                <div className="modal-footer">
-                    <button className="btn btn-primary" disabled={disabled} onClick={this.onOK}>OK</button>
-                    <button className="btn btn-warning" onClick={this.onCancel}>Cancel</button>
+            <div>
+                <Title styles={(ReactStyle`text-align: center;`).style} />
+                <div style={(ReactStyle`margin: 0 5px;`).style}>
+                    <div style={(ReactStyle`margin-top: 0.6em;`).style}>設定用URLを入力してください</div>
+                    <div style={(ReactStyle`display: flex;`).style}>
+                        <InputUrl status={this.state.status} onGetURL={this.onGetURL} />
+                        <Status status={this.state.status} />
+                    </div>
+                    <pre style={style}>{result}</pre>
+                    <div style={(ReactStyle`text-align: center;`).style}>
+                        <AddButton style={(ReactStyle`margin: 1em; height: 3em; width: 10em;`).style} disabled={this.state.status !== 'OK'} onClick={this.onOK} />
+                        <CancelButton style={(ReactStyle`margin: 1em; height: 3em; width: 10em;`).style} onClick={this.onCancel} />
+                    </div>
                 </div>
             </div>
         );

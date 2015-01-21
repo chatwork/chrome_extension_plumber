@@ -3,14 +3,16 @@ import MatcheModel = require('./model');
 class Infrastructure {
     toModel(obj: Object) {
         return new MatcheModel(
+            obj['id'],
             new RegExp(obj['url']),
             new URL(obj['redirect'])
         );
     }
     toObject(model: MatcheModel) {
         return {
-            'url' : model['url'].toString(),
-            'redirect' : model['redirect'].href
+            'id' : model.id,
+            'url' : model.url.toString().replace(/^\/([\s\S]+)\/\w*?$/, '$1'),
+            'redirect' : model.redirect.href
         }
     }
 }

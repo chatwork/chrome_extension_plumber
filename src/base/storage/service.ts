@@ -1,5 +1,5 @@
 class Service {
-    private StorageKey = 'StorageKey1';
+    private StorageKey = 'StorageKey2';
     constructor() {
     }
     private getKey(name) {
@@ -12,7 +12,7 @@ class Service {
                 if (chrome.extension.lastError) {
                     reject(chrome.extension.lastError);
                 }
-                resolve((result || {})[key]);
+                resolve((result || {})[key] || {});
             });
         });
     }
