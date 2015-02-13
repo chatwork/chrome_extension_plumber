@@ -10,7 +10,9 @@ Local proxy for client side user review.
 
 ### Load json
 
-  https://gist.githubusercontent.com/cw-ago/a8cdf7c1009629f1e0e0/raw/5ab176c98bef144255415fa5f489b0fbad596c34/manifest.json
+```
+https://gist.githubusercontent.com/cw-ago/a8cdf7c1009629f1e0e0/raw/5ab176c98bef144255415fa5f489b0fbad596c34/manifest.json
+```
 
 ### Access test site
 
@@ -18,6 +20,7 @@ Local proxy for client side user review.
 
 ### json format
 
+```
   {
     "name": "Test manifest",
     "urls": [
@@ -33,6 +36,7 @@ Local proxy for client side user review.
       }
     ]
   }
+```
 
 ## License
 
