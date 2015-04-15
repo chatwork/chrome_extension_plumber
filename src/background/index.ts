@@ -1,8 +1,8 @@
-import MessageInfrastructure = require('../base/message/infrastructure');
-import StorageService = require('../base/storage/service');
-import RulesInfrastructure = require('../base/rules/infrastructure');
-import WebRequestService = require('../base/webRequest/service');
-import Utils = require('../base/utils');
+import MessageInfrastructure from '../base/message/infrastructure';
+import StorageService from '../base/storage/service';
+import RulesInfrastructure from '../base/rules/infrastructure';
+import WebRequestService from '../base/webRequest/service';
+import Utils from '../base/utils';
 
 var messageInfrastructure = new MessageInfrastructure();
 var storageService = new StorageService();

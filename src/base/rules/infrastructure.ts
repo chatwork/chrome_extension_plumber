@@ -1,6 +1,6 @@
-import RuleInfrastructure = require('../rule/infrastructure');
-import RulesModel = require('./model');
-import Utils = require('../utils');
+import RuleInfrastructure from '../rule/infrastructure';
+import RulesModel from './model';
+import Utils from '../utils';
 
 class Infrastructure {
     private ruleInfrastructure: RuleInfrastructure;
@@ -26,4 +26,4 @@ class Infrastructure {
         };
     }
 }
-export = Infrastructure
+export default Infrastructure

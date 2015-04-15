@@ -10,4 +10,4 @@ class Model {
         this.id = this.id || UUID.generate();
     }
 }
-export = Model;
+export default Model;

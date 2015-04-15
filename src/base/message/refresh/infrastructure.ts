@@ -1,6 +1,6 @@
-import RefreshModel = require('./model');
-import RulesInfrastructure = require('../../rules/infrastructure');
-import Utils = require('../../utils');
+import RefreshModel from './model';
+import RulesInfrastructure from '../../rules/infrastructure';
+import Utils from '../../utils';
 
 class Infrastructure {
     rulesInfrastructure: RulesInfrastructure;
@@ -21,4 +21,4 @@ class Infrastructure {
         );
     }
 }
-export = Infrastructure;
+export default Infrastructure;

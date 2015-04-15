@@ -1,6 +1,6 @@
-import MessageModel = require('./model');
-import RefreshModel = require('./refresh/model');
-import RefreshInfrastructure = require('./refresh/infrastructure');
+import MessageModel from './model';
+import RefreshModel from './refresh/model';
+import RefreshInfrastructure from './refresh/infrastructure';
 
 interface Dispatch {
     refresh? : (message: RefreshModel) => void;
@@ -26,4 +26,4 @@ class Infrastructure {
         }
     }
 }
-export = Infrastructure;
+export default Infrastructure;

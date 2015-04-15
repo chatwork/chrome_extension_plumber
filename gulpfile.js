@@ -32,6 +32,7 @@ gulp.task('zip', function () {
 
 gulp.task('typescript', function () {
     var typescript = require('gulp-typescript');
+    var babel = require('gulp-babel');
     gulp.src(['src/_base.ts'])
         .pipe(typescript({
             module: 'commonjs',
@@ -40,6 +41,7 @@ gulp.task('typescript', function () {
             noExternalResolve: true
         }))
         .js
+        .pipe(babel())
         .pipe(gulp.dest('extension/js/'))
     ;
     return gulp.src(['typings/**/*.ts', 'src/**/*.ts'])
@@ -47,9 +49,11 @@ gulp.task('typescript', function () {
             module: 'commonjs',
             target: 'es6',
             removeComments: true,
-            noExternalResolve: true
+            noExternalResolve: true,
+            typescript: require('typescript')
         }))
         .js
+        .pipe(babel())
         .pipe(gulp.dest('dist/'))
     ;
 });
@@ -57,7 +61,7 @@ gulp.task('typescript', function () {
 gulp.task('react', function () {
     var react = require('gulp-react');
     return gulp.src(['src/**/*.jsx'])
-        .pipe(react())
+        .pipe(react({}))
         .pipe(gulp.dest('dist/'))
     ;
 });

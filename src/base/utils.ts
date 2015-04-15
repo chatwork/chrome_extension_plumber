@@ -1,3 +1,5 @@
-export function toArray(obj) {
-    return Array.isArray(obj) ? obj : [];
-}
+export default {
+    'toArray': function (obj) {
+        return Array.isArray(obj) ? obj : [];
+    }
+};

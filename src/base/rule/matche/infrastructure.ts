@@ -1,4 +1,4 @@
-import MatcheModel = require('./model');
+import MatcheModel from './model';
 
 class Infrastructure {
     toModel(obj: Object) {
@@ -16,4 +16,4 @@ class Infrastructure {
         }
     }
 }
-export = Infrastructure;
+export default Infrastructure;

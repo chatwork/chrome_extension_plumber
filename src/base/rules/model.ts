@@ -1,5 +1,5 @@
-import BaseModel = require('../model');
-import RuleModel = require('../rule/model');
+import BaseModel from '../model';
+import RuleModel from '../rule/model';
 
 class Model extends BaseModel {
     constructor(
@@ -36,4 +36,4 @@ class Model extends BaseModel {
         return this.rules;
     }
 }
-export = Model;
+export default Model;

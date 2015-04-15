@@ -14,7 +14,7 @@ module.exports = React.createClass({
             return <Rule key={rule.id} rule={rule} last={last} onUpdate={this.props.onUpdate} onDelete={this.props.onDelete} onChangeEnable={this.props.onChangeEnable} />;
         });
         return (
-            <ul style={(ReactStyle`margin: 5px;`).style}>{rules}</ul>
+            <ul style={StyleSheet.create`._ { margin: 5px; }`._}>{rules}</ul>
         );
     }
 });

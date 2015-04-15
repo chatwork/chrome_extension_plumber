@@ -1,4 +1,4 @@
-import RulesModel = require('../rules/model');
+import RulesModel from '../rules/model';
 
 interface webRequestParam {
     handler(details: chrome.webRequest.OnBeforeRequestDetails): chrome.webRequest.BlockingResponse;
@@ -62,4 +62,4 @@ class Service {
         return filter;
     }
 }
-export = Service;
+export default Service;

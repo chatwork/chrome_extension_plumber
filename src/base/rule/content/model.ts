@@ -1,4 +1,4 @@
-import BaseModel = require('../../model');
+import BaseModel from '../../model';
 
 class Model extends BaseModel {
     constructor(
@@ -11,4 +11,4 @@ class Model extends BaseModel {
         super(id);
     }
 }
-export = Model;
+export default Model;

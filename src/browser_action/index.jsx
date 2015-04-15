@@ -1,4 +1,3 @@
-require('fetch');
 var Utils = require('../base/utils');
 var RefreshMessageInfrastructure = require('../base/message/refresh/infrastructure');
 var RefreshMessageModel = require('../base/message/refresh/model');
@@ -16,7 +15,6 @@ new Promise((resolve, reject) => {
     }).catch(reject);
 }).then((rulesModel) => {
     var router = new (require('./router'));
-    ReactStyle.inject();
     var onNewRule = (manifest_url, json) => {
         json['manifest_url'] = manifest_url;
         var rule = ruleInfrastructure.toModel(json);
@@ -24,7 +22,9 @@ new Promise((resolve, reject) => {
         applyRules(rulesModel, () => ReactRouter.HashLocation.replace('/'));
     };
     var onUpdate = (rule) => {
-        fetch(rule.manifest_url).then(r => r.json())
+        fetch(rule.manifest_url, {
+            'credentials': 'include'
+        }).then(r => r.json())
             .then((json) => {
                 json['manifest_url'] = rule.manifest_url;
                 json['enable'] = rule.enable;

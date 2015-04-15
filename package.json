@@ -1,11 +1,11 @@
 {
   "name": "plumber",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "author": "@kyo_ago",
   "browserify": {
     "transform": [
       "react-stylify",
-      "6to5ify",
+      "babelify",
       "debowerify"
     ]
   },
@@ -13,26 +13,27 @@
     "object-assign": "^2.0.0"
   },
   "devDependencies": {
-    "6to5ify": "^3.1.2",
-    "bower": "^1.3.12",
-    "browserify": "^8.1.1",
+    "babelify": "^6.0.2",
+    "bower": "^1.4.1",
+    "browserify": "^9.0.8",
     "debowerify": "^1.2.0",
-    "dtsm": "^0.4.1",
-    "event-stream": "^3.2.1",
+    "dtsm": "^0.9.1",
+    "event-stream": "^3.3.0",
     "fixbow": "0.0.1",
-    "fixpack": "^1.2.0",
-    "gulp": "^3.8.10",
-    "gulp-bump": "^0.1.11",
-    "gulp-cli": "^0.1.4",
-    "gulp-react": "^2.0.0",
-    "gulp-typescript": "^2.3.0",
-    "gulp-zip": "^2.0.2",
-    "object-assign": "^2.0.0",
-    "react": "^0.12.2",
-    "react-style": "^0.3.1",
+    "fixpack": "^2.2.0",
+    "gulp": "^3.8.11",
+    "gulp-babel": "^5.1.0",
+    "gulp-bump": "^0.3.0",
+    "gulp-cli": "^0.2.0",
+    "gulp-react": "^3.0.1",
+    "gulp-typescript": "^2.6.0",
+    "gulp-zip": "^3.0.2",
+    "react": "^0.13.1",
+    "react-style": "^0.5.3",
     "react-stylify": "git+https://github.com/chatwork/react-stylify.git",
-    "reactify": "^0.17.1",
-    "vinyl-source-stream": "^1.0.0"
+    "reactify": "^1.1.0",
+    "typescript": "^1.5.0-alpha",
+    "vinyl-source-stream": "^1.1.0"
   },
   "license": "MIT",
   "scripts": {

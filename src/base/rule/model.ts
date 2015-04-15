@@ -1,6 +1,6 @@
-import BaseModel = require('../model');
-import MatcheModel = require('./matche/model');
-import ContentModel = require('./content/model');
+import BaseModel from '../model';
+import MatcheModel from './matche/model';
+import ContentModel from './content/model';
 
 class Model extends BaseModel {
     constructor(
@@ -24,4 +24,4 @@ class Model extends BaseModel {
         ;
     }
 }
-export = Model;
+export default Model;

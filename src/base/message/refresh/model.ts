@@ -1,5 +1,5 @@
-import BaseModel = require('../model');
-import RulesModel = require('../../rules/model');
+import BaseModel from '../model';
+import RulesModel from '../../rules/model';
 
 class Model extends BaseModel {
     static Type = 'refresh';
@@ -10,4 +10,4 @@ class Model extends BaseModel {
         super(id);
     }
 }
-export = Model;
+export default Model;

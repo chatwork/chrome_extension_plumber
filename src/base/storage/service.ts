@@ -30,4 +30,4 @@ class Service {
         });
     }
 }
-export = Service;
+export default Service;

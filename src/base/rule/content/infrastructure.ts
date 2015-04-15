@@ -1,5 +1,5 @@
-import ContentModel = require('./model');
-import Utils = require('../../utils');
+import ContentModel from './model';
+import Utils from '../../utils';
 
 class Infrastructure {
     toModel(obj: Object) {
@@ -21,4 +21,4 @@ class Infrastructure {
         }
     }
 }
-export = Infrastructure;
+export default Infrastructure;

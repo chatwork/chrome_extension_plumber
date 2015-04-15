@@ -28,39 +28,57 @@ module.exports = React.createClass({
         this.props.onDelete(this.props.rule);
     },
     render() {
-        var lbase = (ReactStyle`
-            display: flex;
-            align-items: center;
-        `).style;
+        var lbase = StyleSheet.create`
+            ._ {
+                display: flex;
+                align-items: center;
+            }
+        `._;
         var lblast = this.props.last
             ? {}
-            : (ReactStyle`
-                border-bottom-style: dotted;
-                border-bottom-width: 1px;
-            `).style
+            : StyleSheet.create`
+                ._ {
+                    border-bottom-style: dotted;
+                    border-bottom-width: 1px;
+                }
+            `._
         ;
         var listyle = this.props.rule.enable
             ? {}
-            : (ReactStyle`background-color: #f1f2f3;`).style
+            : StyleSheet.create`
+                ._ {
+                    background-color: #f1f2f3;
+                }
+            `._
         ;
-        var buttonstyle = (ReactStyle`
-            cursor: pointer;
-        `).style;
-        var imgstyle = (ReactStyle`
-            width: 1.2em;
-            height: 1.2em;
-            margin: 0 5px;
-        `).style;
-        var svgstyle = (ReactStyle`fill: #8d9092;`).style;
-        var spanstyle = (ReactStyle`
-            margin: 4px 0px 0px 5px;
-            font-size: 1.4em;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            display: inline-block;
-            white-space: nowrap;
-            width: 100%;
-        `).style;
+        var buttonstyle = StyleSheet.create`
+            ._ {
+                cursor: pointer;
+            }
+        `._;
+        var imgstyle = StyleSheet.create`
+            ._ {
+                width: 1.2em;
+                height: 1.2em;
+                margin: 0 5px;
+            }
+        `._;
+        var svgstyle = StyleSheet.create`
+            ._{
+                fill: #8d9092;
+            }
+        `._;
+        var spanstyle = StyleSheet.create`
+            ._{
+                margin: 4px 0px 0px 5px;
+                font-size: 1.4em;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                display: inline-block;
+                white-space: nowrap;
+                width: 100%;
+            }
+        `._;
         var loading = <img style={imgstyle} src="../img/loadingAnimetion.gif" />;
         var updateButton = this.state.status !== 'onUpdate' ? (
             <button style={buttonstyle} onClick={this.onUpdate}>
@@ -77,10 +95,10 @@ module.exports = React.createClass({
             </button>
         ) : loading;
         return (
-            <li style={assign({}, listyle, lbase, lblast)}>
+            <li style={assign.apply(null, [{}, listyle, lbase, lblast])}>
                 <Toggle defaultChecked={this.props.rule.enable} onChange={this.onChange} />
                 <div><span style={spanstyle} title={this.props.rule.name}>{this.props.rule.name}</span></div>
-                <div style={(ReactStyle`width: 85px;`).style}>
+                <div style={StyleSheet.create`._{ width: 85px; }`._}>
                     {updateButton}
                     {deleteButton}
                 </div>

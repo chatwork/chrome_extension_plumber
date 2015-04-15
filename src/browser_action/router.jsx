@@ -1,10 +1,12 @@
 var { Route, DefaultRoute } = ReactRouter;
+var MainComponent = React.createFactory(require('./components/main/index'));
+var DialogComponent = React.createFactory(require('./components/dialog/index'));
 
 class Router {
     _getMain(rulesModel, onUpdate, onDelete, onChangeEnable) {
         return React.createClass({
             render() {
-                return require('./components/main/index')({
+                return MainComponent({
                     rules: rulesModel,
                     onUpdate: onUpdate,
                     onDelete: onDelete,
@@ -16,7 +18,7 @@ class Router {
     _getDialog(onNewRule) {
         return React.createClass({
             render() {
-                return require('./components/dialog/index')({
+                return DialogComponent({
                     onNewRule: onNewRule
                 });
             }

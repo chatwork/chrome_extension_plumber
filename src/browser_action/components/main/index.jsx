@@ -21,12 +21,14 @@ module.exports = React.createClass({
     },
     render() {
         var button = (() => {
-            var style = (ReactStyle`
-                vertical-align: top;
-                margin-top: 4px;
-                position: absolute;
-                right: 7px;
-            `).style;
+            var style = StyleSheet.create`
+                ._ {
+                    vertical-align: top;
+                    margin-top: 4px;
+                    position: absolute;
+                    right: 7px;
+                }
+            `._;
             return <AddButton style={style} onClick={this.onClick} />;
         })();
         return (

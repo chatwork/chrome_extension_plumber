@@ -1,7 +1,7 @@
-import RuleModel = require('./model');
-import MatcheInfrastructure = require('./matche/infrastructure');
-import ContentInfrastructure = require('./content/infrastructure');
-import Utils = require('../utils');
+import RuleModel from './model';
+import MatcheInfrastructure from './matche/infrastructure';
+import ContentInfrastructure from './content/infrastructure';
+import Utils from '../utils';
 
 declare function require(name: string): any;
 var assign = require('object-assign');
@@ -45,4 +45,4 @@ class Infrastructure {
         return (<any>assign)({}, content, obj)
     }
 }
-export = Infrastructure;
+export default Infrastructure;
